@@ -21,3 +21,19 @@ exports.isValidUrl = function(url) {
 // Add additional utility functions below
 /************************************************************/
 
+// exports.encryptPassword = function(password) {
+//   var promised = new Promise(function(resolve, reject) {
+//     var salt = crypto.randomBytes(256).toString('16');
+//     var iterations = 10000;
+//     crypto.pbkdf2(password, salt, iterations, 512, 'sha512', function(err, results) {
+//       if (err) {
+//         reject(err);
+//       } else {
+//         console.log('these are', results);
+//         resolve(results);
+//       }
+//     });
+      
+//   });
+//   return promised;
+// };

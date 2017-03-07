@@ -85,7 +85,26 @@ function(req, res, next) {
 /************************************************************/
 // Write your authentication routes here
 /************************************************************/
+app.get('/signup', function(req, res) {
+  res.render('signup');
+});
 
+app.post('/signup',
+  function(req, res, next) {
+    return Users.addUser(req.body)
+    .then(function(user) {
+      console.log(req.body);
+      res.redirect('/');
+    })
+    .catch(function() {
+      res.redirect('/signup');
+    });
+
+    
+  });
+app.get('/login', function(req, res) {
+  res.render('login');
+});
 
 
 /************************************************************/
