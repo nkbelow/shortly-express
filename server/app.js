@@ -102,10 +102,24 @@ app.post('/signup',
 
     
   });
+
+//deals with login page
 app.get('/login', function(req, res) {
   res.render('login');
 });
 
+app.post('/login', function(req, res, next) {
+  return Users.existingUser(req.body).then(function(user) {
+    console.log(user[0]);
+    if (user[0].length > 0) {
+      res.redirect('/');
+    } else {
+      res.redirect('/login');
+    }
+  }).catch(function() {
+    res.redirect('/login');
+  });
+});
 
 /************************************************************/
 // Handle the wildcard route last - if all other routes fail
